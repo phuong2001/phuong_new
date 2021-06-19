@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>List User</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--css-->
+    <link th:href="@{/static/css/bootstrap.css}" rel="stylesheet" />
+    <!--js-->
+    <script th:src="@{/js/bootstrap.js}"></script>
+
+</head>
+<body>
+
+<table class="table">
+    <thead class=" text-primary">
+    <th scope="col">ID</th>
+    <th scope="col">Name</th>
+    <th scope="col">Publisher</th>
+    <th scope="col">Author</th>
+    <th scope="col">Genre</th>
+    <th scope="col">Genre</th>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${books}">
+        <th scope="row" th:text="${book.id}"></th>
+        <td th:text="${book.name}"></td>
+        <td th:text="${book.publisher}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.genre}"></td>
+        <td th:text="${book.publiser}"></td>
+    </tr>
+    </tbody>
+</table>
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        <li th:if="${totalPage > 0}" class="page-item" th:each="t : ${#numbers.sequence( 0, (totalPage - 1)/1)}" th:classappend="${t==page} ? active">
+            <a class="page-link" th:href="@{/list(size=${size}, page=${t})}" th:text="${t+1}"></a>
+        </li>
+    </ul>
+</nav>
+</body>
+
+</html>

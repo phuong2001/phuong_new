@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Add user</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--css-->
+    <link th:href="@{/static/css/bootstrap.css}" rel="stylesheet" />
+    <!--js-->
+    <script th:src="@{/js/bootstrap.js}"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <form method="post" th:action="@{/add}" th:object="${book}">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" name="name" id="name" th:field="${book.name}">
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">publisher</label>
+                    <input type="text" class="form-control" name="phone" id="price" th:field="${book.publisher}">
+                </div>
+                <div class="mb-3">
+                    <label for="categoryid" class="form-label">author</label>
+                    <input type="text" class="form-control" name="phone" id="categoryid" th:field="${book.author}">
+                </div>
+                <div class="mb-3">
+                    <label for="quantity" class="form-label">Genre</label>
+                    <input type="text" class="form-control" name="age" id="quantity" th:field="*{genre}">
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
